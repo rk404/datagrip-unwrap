@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>com.rafalkaminski.datagrip.unwrap</id>
+    <name>PL/SQL Unwrap</name>
+    <vendor>Rafał Kamiński</vendor>
+
+    <description><![CDATA[
+        Odwija kod PL/SQL zawinięty narzędziem <code>wrap</code> lub <code>DBMS_DDL.WRAP</code> (Oracle 10g i nowsze).
+        Dekodowanie odbywa się lokalnie, bez udziału bazy danych.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="PL/SQL Unwrap" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <action id="PlsqlUnwrap.EditorUnwrap"
+                class="com.rafalkaminski.datagrip.unwrap.actions.UnwrapEditorAction"
+                text="Unwrap PL/SQL"
+                description="Odwija zawinięty kod PL/SQL (zaznaczenie albo cały dokument)">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
